@@ -1,0 +1,43 @@
+{
+    "chapters": {
+        "chapter 10": {
+            "nouns": [],
+            "verbs": ["verb"]
+
+        },
+
+        "chapter 11": {
+            "nouns": ["one", "two"],
+            "verbs": ["verb"]
+        },
+
+        "chapter 12": {
+            "nouns": ["test", "hi"],
+            "verbs": ["verb"]
+
+        },
+
+        "chapter 13": {
+            "nouns": [
+                {"letter": "אות"},
+                {"son/boy": "בּו"},
+                {"girl/daughter": "בּת"},
+                {"blessing": "בּרכה"},
+                {"thing": "דבר"},
+                {"honey": "דבש"},
+                {"couple": "זוג"},
+                {"freedom/vacation": "חופש"},
+                {"ring": "טבּעת"},
+                {"ceremony": "טקס"},
+                {"marriage contract": "כּתובּה"},
+                {"luck, sign of zodiac": "מזל"},
+                {"car": "מכונית"},
+                {"custom": "מנהג"},
+                {"game": "משׂחק"},
+                {"shoe": "נעל"}
+            ],
+
+            "verbs": ["verb"]
+        }
+    }
+}
