@@ -1,23 +1,23 @@
 {
     "chapters": {
-        "chapter 10": {
+        "chapter-10": {
             "nouns": [],
             "verbs": ["verb"]
 
         },
 
-        "chapter 11": {
+        "chapter-11": {
             "nouns": ["one", "two"],
             "verbs": ["verb"]
         },
 
-        "chapter 12": {
+        "chapter-12": {
             "nouns": ["test", "hi"],
             "verbs": ["verb"]
 
         },
 
-        "chapter 13": {
+        "chapter-13": {
             "nouns": [
                 {"letter": "אות"},
                 {"son/boy": "בּו"},
@@ -36,8 +36,19 @@
                 {"game": "משׂחק"},
                 {"shoe": "נעל"}
             ],
-
-            "verbs": ["verb"]
+            "verbs": [
+                {"bless": "מברך"},
+                {"bless/sanctify": "מקדש"},
+                {"wear shoes": "נועל"},
+                {"fall": "נופל"},
+                {"give": "נותן"},
+                {"stand": "עומד"},
+                {"call": "קורא"}
+            ],
+            "adjectives": [
+                {"red": "אדום"},
+                {"funny": "מצחיק"}
+            ]
         }
     }
 }
