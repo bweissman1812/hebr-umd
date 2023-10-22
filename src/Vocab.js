@@ -11,20 +11,22 @@ function Vocab() {
     return (
         <Box id="container">
             {data.chapters[chapterNumber][vocabType].map((item) => (
-                <VocabCard item={item} />
+                <VocabCard item={item} chapterNumber={chapterNumber} vocabType={vocabType} />
             ))}
         </Box>
     )
 
 }
 
-function VocabCard({ item }) {
+function VocabCard({ item, chapterNumber, vocabType }) {
     const [displayEnglish, setDisplayEnglish] = useState(true);
 
+    // to do: mute audio so only one is playing
     const voiceButtonClicked = (item) => {
-        const key = Object.keys(item)[0]
+        const key = Object.keys(item)[0].replace("/", ":")
         console.log(key)
-        var audio = new Audio(`/audios/${key}.m4a`);
+        console.log(`/audios/${chapterNumber}/${vocabType}/'${key}\'.m4a`)
+        var audio = new Audio(`/audios/${chapterNumber}/${vocabType}/${key}.m4a`);
         audio.play();
     }
 
