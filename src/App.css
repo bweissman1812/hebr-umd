@@ -5,13 +5,6 @@
   justify-content: center;
 }
 
-#card {
-  height: 200px;
-  text-align: center;
-  margin: 15px;
-  background-color: whitesmoke;
-  width: calc(100% / 5);
-}
 
 #title {
   text-align: center;
@@ -27,4 +20,15 @@
   margin: 15px;
   background-color: whitesmoke;
   width: 300px
+}
+
+#card {
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  margin: 15px;
+  background-color: whitesmoke;
+  width: calc(100% / 5);
 }
