@@ -2,18 +2,18 @@
     "chapters": {
         "chapter-10": {
             "nouns": [],
-            "verbs": ["verb"]
+            "verbs": []
 
         },
 
         "chapter-11": {
-            "nouns": ["one", "two"],
-            "verbs": ["verb"]
+            "nouns": [],
+            "verbs": []
         },
 
         "chapter-12": {
-            "nouns": ["test", "hi"],
-            "verbs": ["verb"]
+            "nouns": [],
+            "verbs": []
 
         },
 
