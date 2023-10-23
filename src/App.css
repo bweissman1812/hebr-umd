@@ -33,7 +33,24 @@
   text-align: center;
   margin: 15px;
   background-color: whitesmoke;
-  width: 300px
+  width: 300px;
+  max-width: 300px;
+}
+
+
+#vocab-type {
+  margin: 18px;
+}
+
+#home {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  
+}
+
+#home:hover {
+  cursor: pointer;
 }
 
 #card {
@@ -45,4 +62,32 @@
   margin: 15px;
   background-color: whitesmoke;
   width: 350px;
+  max-width: 350px;
+}
+
+#vocab-game-title {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+#remaining-score {
+  margin-bottom: 30px;
+}
+
+#correct-hebrew {
+  margin-bottom: 70px;
+}
+
+#audioGameButton {
+  width: 300px;
+  margin: 10px;
+}
+
+#nextWordGameButton {
+  width: 300px;
+  margin: 10px;
+}
+
+#score {
+  margin: 50px;
 }
