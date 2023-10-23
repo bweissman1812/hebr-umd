@@ -3,16 +3,20 @@ import './App.css';
 import data from './data.json';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import HomeButton from './HomeButton';
 
 function Vocab() {
     const { chapterNumber, vocabType } = useParams();
 
     return (
-        <Box id="container">
-            {data.chapters[chapterNumber][vocabType].map((item) => (
-                <VocabCard item={item} chapterNumber={chapterNumber} vocabType={vocabType} />
-            ))}
+        <Box id="columns">
+            <HomeButton />
+            <Typography id='vocab-type' variant='h4'>{vocabType[0].toUpperCase() + vocabType.slice(1)}</Typography>
+            <Box id="container">
+                {data.chapters[chapterNumber][vocabType].map((item) => (
+                    <VocabCard item={item} chapterNumber={chapterNumber} vocabType={vocabType} />
+                ))}
+            </Box>
         </Box>
     )
 

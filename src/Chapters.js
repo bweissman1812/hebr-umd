@@ -3,6 +3,7 @@ import { Card, Box, ListItemButton, Button, Typography } from '@mui/material';
 import data from './data.json';
 import { useNavigate, useParams } from 'react-router-dom';
 import Game from './Game';
+import HomeButton from './HomeButton';
 
 export function Chapters () {
     const navigate = useNavigate();
@@ -44,7 +45,8 @@ export function Chapter () {
 
     return (
         <Box id='columns'>
-            <Typography id='title' variant='h3'>UMD Hebrew Vocab App</Typography>
+            <HomeButton />
+            <Typography id='title' variant='h3'>{chapterNumber[0].toUpperCase() + chapterNumber.slice(1)}</Typography>
             <Box id="container"> 
                 {Object.keys(data.chapters[chapterNumber]).map((listItem) => (
                     <ListItemButton onClick={() => chapterButtonClicked(listItem)} id="card">

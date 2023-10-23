@@ -37,6 +37,22 @@
   max-width: 300px;
 }
 
+
+#vocab-type {
+  margin: 18px;
+}
+
+#home {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  
+}
+
+#home:hover {
+  cursor: pointer;
+}
+
 #card {
   height: 200px;
   display: flex;

@@ -3,6 +3,7 @@ import './App.css';
 import data from './data.json';
 import { ListItemButton, Box, Button, Typography } from '@mui/material';
 import React, { useState, useEffect, useRef } from 'react';
+import HomeButton from './HomeButton';
 
 function Game() {
     const { chapterNumber } = useParams();
@@ -186,6 +187,7 @@ function Game() {
         return (
 
             <Box id="columns">
+                <HomeButton />
                 <Typography id='vocab-game-title' variant='h4'>Vocab Game</Typography>
                 <Typography id='remaining-score' variant='h5'>Remaining: {answeredWords.length}/{vocabWords.length}</Typography>
                 <Typography id='correct-hebrew' variant='h5'>{correct.hebrew}</Typography>
