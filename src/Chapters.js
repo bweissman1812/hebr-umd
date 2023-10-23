@@ -13,13 +13,16 @@ export function Chapters () {
     }
 
     return (
-        <Box id="container"> 
-            {Object.keys(data.chapters).map((listItem) => (
-                <ListItemButton onClick={() => chapterButtonClicked(listItem)} id="card">
-                    <Typography variant='h5'>{listItem[0].toUpperCase() + listItem.slice(1)}</Typography>
-                </ListItemButton>
-            )   
-        )}
+        <Box id='columns'>
+            <Typography id='title' variant='h3'>UMD Hebrew Vocab App</Typography>
+            <Box id="container"> 
+                {Object.keys(data.chapters).map((listItem) => (
+                    <ListItemButton onClick={() => chapterButtonClicked(listItem)} id="card">
+                        <Typography variant='h5'>{listItem[0].toUpperCase() + listItem.slice(1)}</Typography>
+                    </ListItemButton>
+                )   
+            )}
+            </Box>
         </Box>
     )
 }
@@ -35,13 +38,16 @@ export function Chapter () {
     }
 
     return (
-        <Box id="container"> 
-            {Object.keys(data.chapters[chapterNumber]).map((listItem) => (
-                <ListItemButton onClick={() => chapterButtonClicked(listItem)} id="card">
-                    <Typography variant='h5'>{listItem[0].toUpperCase() + listItem.slice(1)}</Typography>
-                </ListItemButton>
-            )   
-        )}
+        <Box id='columns'>
+            <Typography id='title' variant='h3'>UMD Hebrew Vocab App</Typography>
+            <Box id="container"> 
+                {Object.keys(data.chapters[chapterNumber]).map((listItem) => (
+                    <ListItemButton onClick={() => chapterButtonClicked(listItem)} id="card">
+                        <Typography variant='h5'>{listItem[0].toUpperCase() + listItem.slice(1)}</Typography>
+                    </ListItemButton>
+                )   
+            )}
+            </Box>
         </Box>
     )
 }
