@@ -2,6 +2,7 @@ import './App.css';
 import { Card, Box, ListItemButton, Button, Typography } from '@mui/material';
 import data from './data.json';
 import { useNavigate, useParams } from 'react-router-dom';
+import Game from './Game';
 
 export function Chapters () {
     const navigate = useNavigate();
@@ -37,6 +38,10 @@ export function Chapter () {
         navigate(`${test}`)
     }
 
+    const gameButtonClicked = () => {
+        navigate('game');
+    }
+
     return (
         <Box id='columns'>
             <Typography id='title' variant='h3'>UMD Hebrew Vocab App</Typography>
@@ -47,6 +52,9 @@ export function Chapter () {
                     </ListItemButton>
                 )   
             )}
+            <ListItemButton id="card" onClick={gameButtonClicked}>
+                <Typography variant='h5'>Game</Typography>
+            </ListItemButton>
             </Box>
         </Box>
     )

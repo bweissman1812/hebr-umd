@@ -23,20 +23,13 @@ function VocabCard({ item, chapterNumber, vocabType }) {
 
     // to do: mute audio so only one is playing
     const voiceButtonClicked = (item) => {
-        const key = Object.keys(item)[0].replace("/", ":")
-        console.log(key)
-        console.log(`/audios/${chapterNumber}/${vocabType}/'${key}\'.m4a`)
-        var audio = new Audio(`/audios/${chapterNumber}/${vocabType}/${key}.m4a`);
+        var audio = new Audio(item.audioPath);
         audio.play();
     }
 
     return (
         <Card id="vocab-card">
-            {Object.keys(item).map((key, subIndex) => (
-                <div key={subIndex}>
-                    {displayEnglish ? key : item[key]}
-                </div>
-            ))}
+            <Typography>{displayEnglish ? item.english : item.hebrew}</Typography>
             <Button
                 variant='contained'
                 onClick={() => {
@@ -49,4 +42,5 @@ function VocabCard({ item, chapterNumber, vocabType }) {
         </Card>
     );
 }
+
 export default Vocab;

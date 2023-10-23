@@ -2,35 +2,35 @@
     "chapters": {
         "chapter-13": {
             "nouns": [
-                {"letter": "אות"},
-                {"son/boy": "בּו"},
-                {"girl/daughter": "בּת"},
-                {"blessing": "בּרכה"},
-                {"thing": "דבר"},
-                {"honey": "דבש"},
-                {"couple": "זוג"},
-                {"freedom/vacation": "חופש"},
-                {"ring": "טבּעת"},
-                {"ceremony": "טקס"},
-                {"marriage contract": "כּתובּה"},
-                {"luck": "מזל"},
-                {"car": "מכונית"},
-                {"custom": "מנהג"},
-                {"game": "משׂחק"},
-                {"shoe": "נעל"}
+                {"english": "letter", "hebrew": "אות", "audioPath": "/audios/chapter-13/nouns/letter.m4a"},
+                {"english": "son/boy", "hebrew": "בּו", "audioPath": "/audios/chapter-13/nouns/son:boy.m4a"},
+                {"english": "girl/daughter", "hebrew": "בּת", "audioPath": "/audios/chapter-13/nouns/girl:daughter.m4a"},
+                {"english": "blessing", "hebrew": "בּרכה", "audioPath": "/audios/chapter-13/nouns/blessing.m4a"},
+                {"english": "thing", "hebrew": "דבר", "audioPath": "/audios/chapter-13/nouns/thing.m4a"},
+                {"english": "honey", "hebrew": "דבש", "audioPath": "/audios/chapter-13/nouns/honey.m4a"},
+                {"english": "couple", "hebrew": "זוג", "audioPath": "/audios/chapter-13/nouns/couple.m4a"},
+                {"english": "freedom/vacation", "hebrew": "חופש", "audioPath": "/audios/chapter-13/nouns/freedom:vacation.m4a"},
+                {"english": "ring", "hebrew": "טבּעת", "audioPath": "/audios/chapter-13/nouns/ring.m4a"},
+                {"english": "ceremony", "hebrew": "טקס", "audioPath": "/audios/chapter-13/nouns/ceremony.m4a"},
+                {"english": "marriage contract", "hebrew": "כּתובּה", "audioPath": "/audios/chapter-13/nouns/marriage contract.m4a"},
+                {"english": "luck", "hebrew": "מזל", "audioPath": "/audios/chapter-13/nouns/luck.m4a"},
+                {"english": "car", "hebrew": "מכונית", "audioPath": "/audios/chapter-13/nouns/car.m4a"},
+                {"english": "custom", "hebrew": "מנהג", "audioPath": "/audios/chapter-13/nouns/custom.m4a"},
+                {"english": "game", "hebrew": "משׂחק", "audioPath": "/audios/chapter-13/nouns/game.m4a"},
+                {"english": "shoe", "hebrew": "נעל", "audioPath": "/audios/chapter-13/nouns/shoe.m4a"}
             ],
             "verbs": [
-                {"bless": "מברך"},
-                {"bless/sanctify": "מקדש"},
-                {"wear shoes": "נועל"},
-                {"fall": "נופל"},
-                {"give": "נותן"},
-                {"stand": "עומד"},
-                {"call": "קורא"}
+                {"english": "bless", "hebrew": "מברך", "audioPath": "/audios/chapter-13/verbs/bless.m4a"},
+                {"english": "bless/sanctify", "hebrew": "מקדש", "audioPath": "/audios/chapter-13/verbs/bless:sanctify.m4a"},
+                {"english": "wear shoes", "hebrew": "נועל", "audioPath": "/audios/chapter-13/verbs/wear shoes.m4a"},
+                {"english": "fall", "hebrew": "נופל", "audioPath": "/audios/chapter-13/verbs/fall.m4a"},
+                {"english": "give", "hebrew": "נותן", "audioPath": "/audios/chapter-13/verbs/give.m4a"},
+                {"english": "stand", "hebrew": "עומד", "audioPath": "/audios/chapter-13/verbs/stand.m4a"},
+                {"english": "call", "hebrew": "קורא", "audioPath": "/audios/chapter-13/verbs/call.m4a"}
             ],
             "adjectives": [
-                {"red": "אדום"},
-                {"funny": "מצחיק"}
+                {"english": "red", "hebrew": "אדום", "audioPath": "/audios/chapter-13/adjectives/red.m4a"},
+                {"english": "funny", "hebrew": "מצחיק", "audioPath": "/audios/chapter-13/adjectives/funny.m4a"}
             ]
         }
     }
