@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Chapter, Chapters } from './Chapters';
 import Vocab from './Vocab';
 import Game from './Game';
+import Conjugation from './Conjugate';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path='/' element={<Chapters />} />
         <Route exact path='/:chapterNumber' element={<Chapter />} />
         <Route exact path='/:chapterNumber/game' element={<Game />} />
+        <Route exact path='/:chapterNumber/conjugation' element={<Conjugation />} />
         <Route exact path='/:chapterNumber/:vocabType' element={<Vocab />} />
       </Routes>
     </BrowserRouter>

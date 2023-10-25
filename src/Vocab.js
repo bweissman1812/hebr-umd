@@ -10,7 +10,6 @@ function Vocab() {
 
     return (
         <Box id="columns">
-            <HomeButton />
             <Typography id='vocab-type' variant='h4'>{vocabType[0].toUpperCase() + vocabType.slice(1)}</Typography>
             <Box id="container">
                 {data.chapters[chapterNumber][vocabType].map((item) => (
