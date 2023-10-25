@@ -4,6 +4,7 @@ import data from './data.json';
 import { useNavigate, useParams } from 'react-router-dom';
 import Game from './Game';
 import HomeButton from './HomeButton';
+import Conjugation from './Conjugate';
 
 export function Chapters () {
     const navigate = useNavigate();
@@ -45,7 +46,6 @@ export function Chapter () {
 
     return (
         <Box id='columns'>
-            <HomeButton />
             <Typography id='title' variant='h3'>{chapterNumber[0].toUpperCase() + chapterNumber.slice(1)}</Typography>
             <Box id="container"> 
                 {Object.keys(data.chapters[chapterNumber]).map((listItem) => (
@@ -57,6 +57,11 @@ export function Chapter () {
             <ListItemButton id="card" onClick={gameButtonClicked}>
                 <Typography variant='h5'>Game</Typography>
             </ListItemButton>
+            {chapterNumber === 'chapter-13' && 
+            <ListItemButton id="card" onClick={() => (navigate('conjugation'))}>
+                <Typography variant='h5'>Conjugate</Typography>
+            </ListItemButton>
+            }
             </Box>
         </Box>
     )

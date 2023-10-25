@@ -1,12 +1,14 @@
 import { useParams } from 'react-router-dom';
 import './App.css';
 import data from './data.json';
-import { ListItemButton, Box, Button, Typography } from '@mui/material';
+import { ListItemButton, Box, Button, Typography, Alert } from '@mui/material';
 import React, { useState, useEffect, useRef } from 'react';
 import HomeButton from './HomeButton';
 
 function Game() {
     const { chapterNumber } = useParams();
+    const [selectedButton, setSelectedButton] = useState(null);
+    const [correctIndex, setCorrectIndex] = useState(null);
     const [vocabWords, setVocabWords] = useState([]);
     const [shuffledAnswers, setShuffledAnswers] = useState([]);
     const [correct, setCorrect] = useState();
@@ -15,39 +17,40 @@ function Game() {
     const [answeredWords, setAnsweredWords] = useState([]);
     const [isFirstAttempt, setIsFirstAttempt] = useState(true);
     const [refreshChoices, setRefreshChoices] = useState(true)
+    const [displayAudioError, setDisplayAudioError] = useState(false)
 
     const usePrevious = (value, initialValue) => {
         const ref = useRef(initialValue);
         useEffect(() => {
-          ref.current = value;
+            ref.current = value;
         });
         return ref.current;
-      };
+    };
 
-      const useEffectDebugger = (effectHook, dependencies, dependencyNames = []) => {
+    const useEffectDebugger = (effectHook, dependencies, dependencyNames = []) => {
         const previousDeps = usePrevious(dependencies, []);
-      
+
         const changedDeps = dependencies.reduce((accum, dependency, index) => {
-          if (dependency !== previousDeps[index]) {
-            const keyName = dependencyNames[index] || index;
-            return {
-              ...accum,
-              [keyName]: {
-                before: previousDeps[index],
-                after: dependency
-              }
-            };
-          }
-      
-          return accum;
+            if (dependency !== previousDeps[index]) {
+                const keyName = dependencyNames[index] || index;
+                return {
+                    ...accum,
+                    [keyName]: {
+                        before: previousDeps[index],
+                        after: dependency
+                    }
+                };
+            }
+
+            return accum;
         }, {});
-      
+
         if (Object.keys(changedDeps).length) {
-          console.log('[use-effect-debugger] ', changedDeps);
+            console.log('[use-effect-debugger] ', changedDeps);
         }
-      
+
         useEffect(effectHook, dependencies);
-      };
+    };
 
     useEffect(() => {
         const allData = [];
@@ -63,7 +66,7 @@ function Game() {
     useEffect(() => {
         getQandA()
 
-    }, [vocabWords, refreshChoices])
+    }, [vocabWords])
 
     useEffect(() => {
         if (vocabWords.length > 0 && shuffledAnswers.length > 0 && correct) {
@@ -72,7 +75,9 @@ function Game() {
     }, [vocabWords, shuffledAnswers, correct]);
 
     useEffect(() => {
+        console.log('here')
         playButtonClicked();
+
     }, [correct])
 
 
@@ -86,11 +91,16 @@ function Game() {
         }
     };
 
-    const answerButtonClicked = async (choice) => {
+    const answerButtonClicked = async (choice, key) => {
+        if (selectedButton) {
+            return;
+        }
+
+        setSelectedButton(key)
+
         if (choice === correct) {
             const audio = new Audio('/audios/correct.wav')
             await audio.play()
-            alert('Correct!!!');
             setScore(score + 1)
 
             if (isFirstAttempt) {
@@ -100,35 +110,44 @@ function Game() {
             const audio = new Audio('/audios/wrong.wav')
             await audio.play()
             setScore(0);
-            alert('Wrong!');
             setIsFirstAttempt(false);
         }
 
         setRefreshChoices(!refreshChoices)
     };
 
-    const playButtonClicked = () => {
+    const playButtonClicked = async () => {
         if (correct) {
-            const audio = new Audio(correct.audioPath);
-            audio.play();
+            try {
+                console.log('try')
+                const audio = new Audio(correct.audioPath);
+                await audio.play()
+                setDisplayAudioError(false);
+            }
+            catch(error) {
+                console.log('catch')
+                console.log(error)
+                setDisplayAudioError(true)
+            }
         }
     };
 
     async function playAudioAndWait(audioPath) {
         return new Promise((resolve) => {
-          const audio = new Audio(audioPath);
-      
-          audio.addEventListener('ended', () => {
-            // This event will be fired when the audio playback is complete.
-            resolve();
-          });
-      
-          audio.play();
+            const audio = new Audio(audioPath);
+
+            audio.addEventListener('ended', () => {
+                // This event will be fired when the audio playback is complete.
+                resolve();
+            });
+
+            audio.play();
         });
-      }
+    }
 
     const getQandA = async () => {
-
+        setIsLoading(true)
+        setSelectedButton(null)
         setIsFirstAttempt(true)
 
         if (vocabWords.length === 0) {
@@ -137,7 +156,7 @@ function Game() {
         }
 
         var remainingWords = vocabWords.filter((word) => !answeredWords.includes(word));
-        
+
         if (remainingWords.length === 0) {
             alert('You learned all the words')
             await playAudioAndWait('/audios/finishedAllWords.wav')
@@ -156,7 +175,7 @@ function Game() {
         // Randomly select 3 other words as wrong answers
         if (remainingWords.length < 4) {
             shuffleArray(vocabWords);
-            const someVocab = vocabWords.slice(0,3);
+            const someVocab = vocabWords.slice(0, 3);
             const hasCorrect = someVocab.findIndex((word) => newCorrect.english == word.english);
             if (hasCorrect !== -1) {
                 someVocab[hasCorrect] = vocabWords[4];
@@ -172,13 +191,14 @@ function Game() {
         // Combine the correct and wrong answers into a single array
         const newShuffledAnswers = [newCorrect, ...newWrongAnswers];
         shuffleArray(newShuffledAnswers)
+        setCorrectIndex(newShuffledAnswers.findIndex((answer) => answer.english == newCorrect.english))
         setShuffledAnswers(newShuffledAnswers);
         setCorrect(newCorrect);
         setIsLoading(false)
     }
 
     if (isLoading) {
-        
+
         return (
             <>loading...</>
         )
@@ -187,7 +207,7 @@ function Game() {
         return (
 
             <Box id="columns">
-                <HomeButton />
+                {displayAudioError && <Alert>Hit play to play the audio (Browser doesn't let you play audio without interaction)</Alert>}
                 <Typography id='vocab-game-title' variant='h4'>Vocab Game</Typography>
                 <Typography id='remaining-score' variant='h5'>Remaining: {answeredWords.length}/{vocabWords.length}</Typography>
                 <Typography id='correct-hebrew' variant='h5'>{correct.hebrew}</Typography>
@@ -195,9 +215,15 @@ function Game() {
                     {shuffledAnswers.map((choice, index) => (
                         <ListItemButton
                             id='vocab-card'
-                            onClick={() => answerButtonClicked(choice)}
                             key={index}
+                            onClick={() => answerButtonClicked(choice, index)}
+                            style={{
+                                backgroundColor: selectedButton != null ? correctIndex === index ? 'lightgreen' : (selectedButton === index && selectedButton !== correctIndex) ? 'red' : 'whitesmoke' : 'whitesmoke',
+                                cursor: selectedButton ? 'not-allowed' : 'pointer'
+                            }}
+                            disabled={selectedButton != null}
                         >
+                            {console.log(correctIndex)}
                             <Typography>{choice.english}</Typography>
                         </ListItemButton>
                     ))}
