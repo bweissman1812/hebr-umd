@@ -12,8 +12,8 @@ function Vocab() {
         <Box id="columns">
             <Typography id='vocab-type' variant='h4'>{vocabType[0].toUpperCase() + vocabType.slice(1)}</Typography>
             <Box id="container">
-                {data.chapters[chapterNumber][vocabType].map((item) => (
-                    <VocabCard item={item} chapterNumber={chapterNumber} vocabType={vocabType} />
+                {data.chapters[chapterNumber][vocabType].map((item, index) => (
+                    <VocabCard key={index} item={item} chapterNumber={chapterNumber} vocabType={vocabType} />
                 ))}
             </Box>
         </Box>
