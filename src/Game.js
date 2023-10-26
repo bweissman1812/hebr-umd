@@ -75,7 +75,6 @@ function Game() {
     }, [vocabWords, shuffledAnswers, correct]);
 
     useEffect(() => {
-        console.log('here')
         playButtonClicked();
 
     }, [correct])
@@ -119,14 +118,11 @@ function Game() {
     const playButtonClicked = async () => {
         if (correct) {
             try {
-                console.log('try')
                 const audio = new Audio(correct.audioPath);
                 await audio.play()
                 setDisplayAudioError(false);
             }
             catch(error) {
-                console.log('catch')
-                console.log(error)
                 setDisplayAudioError(true)
             }
         }
@@ -151,7 +147,6 @@ function Game() {
         setIsFirstAttempt(true)
 
         if (vocabWords.length === 0) {
-            setIsLoading(true)
             return;
         }
 
@@ -194,7 +189,6 @@ function Game() {
         setCorrectIndex(newShuffledAnswers.findIndex((answer) => answer.english == newCorrect.english))
         setShuffledAnswers(newShuffledAnswers);
         setCorrect(newCorrect);
-        setIsLoading(false)
     }
 
     if (isLoading) {
@@ -207,7 +201,7 @@ function Game() {
         return (
 
             <Box id="columns">
-                {displayAudioError && <Alert>Hit play to play the audio (Browser doesn't let you play audio without interaction)</Alert>}
+                {displayAudioError && <Alert severity='info'>Hit 'Play' to play the audio (The browser doesn't let you play audio without interaction)</Alert>}
                 <Typography id='vocab-game-title' variant='h4'>Vocab Game</Typography>
                 <Typography id='remaining-score' variant='h5'>Remaining: {answeredWords.length}/{vocabWords.length}</Typography>
                 <Typography id='correct-hebrew' variant='h5'>{correct.hebrew}</Typography>
@@ -223,7 +217,6 @@ function Game() {
                             }}
                             disabled={selectedButton != null}
                         >
-                            {console.log(correctIndex)}
                             <Typography>{choice.english}</Typography>
                         </ListItemButton>
                     ))}

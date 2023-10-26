@@ -43,7 +43,6 @@ function Conjugation() {
     const conjugateVerbs = (answers, verb) => {
         const conjugatedVerbs = [];
         for (const pronoun of answers) {
-            console.log(pronoun)
             var conjugatedVerb = pronoun.conjugate.replace(/_/, verb.hebrew[0]);
             var conjugatedVerb = conjugatedVerb.replace(/_/, verb.hebrew[1]);
             
@@ -70,11 +69,9 @@ function Conjugation() {
         const correct = newShuffledAnswers[0];
         shuffleArray(newShuffledAnswers);
 
-        console.log(newVerb)
         var tempInfinitive = "\u200Fלָ_וּ_".replace(/_/, newVerb.hebrew[0])
         tempInfinitive = tempInfinitive.replace(/_/, newVerb.hebrew[1]);
         
-        console.log(tempInfinitive)
         setCorrectIndex(newShuffledAnswers.indexOf(correct))
         setRandomPronoun(newPronoun);
         setRandomVerb(newVerb);
