@@ -1,6 +1,7 @@
 import { Box, ListItemButton, Typography, Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import './App.css'
+import NavBar from "./NavBar";
 
 function Conjugation() {
     //const infinitive = "_לָ_וּ";
@@ -44,10 +45,10 @@ function Conjugation() {
         const conjugatedVerbs = [];
         for (const pronoun of answers) {
             var conjugatedVerb = pronoun.conjugate.replace(/_/, verb.hebrew[0]);
-            var conjugatedVerb = conjugatedVerb.replace(/_/, verb.hebrew[1]);
+            conjugatedVerb = conjugatedVerb.replace(/_/, verb.hebrew[1]);
             
             //check if final mem is in the middle of the word
-            conjugatedVerb = conjugatedVerb.indexOf('ם') != conjugatedVerb.length - 1 ? conjugatedVerb.replace('ם', 'מ') : conjugatedVerb;
+            conjugatedVerb = conjugatedVerb.indexOf('ם') !== conjugatedVerb.length - 1 ? conjugatedVerb.replace('ם', 'מ') : conjugatedVerb;
 
             conjugatedVerbs.push(conjugatedVerb);
         }
@@ -87,7 +88,7 @@ function Conjugation() {
 
     const answerClicked = async (answer, key) => {
         setSelectedButton(key);
-        if (answer == correctConjugatedVerb) {
+        if (answer === correctConjugatedVerb) {
             setScore(score + 1);
             const audio = new Audio('/audios/correct.wav')
             await audio.play()
@@ -109,6 +110,7 @@ function Conjugation() {
     else {
         return (
             <Box id='columns'>
+                <NavBar />
                <Typography id='vocab-game-title' variant="h5">Conjugate the verb correctly</Typography>
                <Typography id='correct-hebrew' variant="h5">Pronoun: {randomPronoun.pronoun} Verb: {randomVerb.hebrew}</Typography>
                <Typography id='correct-hebrew' variant="h5">{infinitive}</Typography>
