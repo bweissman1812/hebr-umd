@@ -3,7 +3,7 @@ import './App.css';
 import data from './data.json';
 import { ListItemButton, Box, Button, Typography, Alert } from '@mui/material';
 import React, { useState, useEffect, useRef } from 'react';
-import HomeButton from './HomeButton';
+import NavBar from './NavBar';
 
 function Game() {
     const { chapterNumber } = useParams();
@@ -18,6 +18,7 @@ function Game() {
     const [isFirstAttempt, setIsFirstAttempt] = useState(true);
     const [refreshChoices, setRefreshChoices] = useState(true)
     const [displayAudioError, setDisplayAudioError] = useState(false)
+    const [isNewWord, setIsNewWord] = useState(0);
 
     const usePrevious = (value, initialValue) => {
         const ref = useRef(initialValue);
@@ -75,9 +76,10 @@ function Game() {
     }, [vocabWords, shuffledAnswers, correct]);
 
     useEffect(() => {
-        playButtonClicked();
+        if (isNewWord)
+            playButtonClicked();
 
-    }, [correct])
+    }, [isNewWord])
 
 
 
@@ -96,6 +98,7 @@ function Game() {
         }
 
         setSelectedButton(key)
+        setIsNewWord(0);
 
         if (choice === correct) {
             const audio = new Audio('/audios/correct.wav')
@@ -171,7 +174,7 @@ function Game() {
         if (remainingWords.length < 4) {
             shuffleArray(vocabWords);
             const someVocab = vocabWords.slice(0, 3);
-            const hasCorrect = someVocab.findIndex((word) => newCorrect.english == word.english);
+            const hasCorrect = someVocab.findIndex((word) => newCorrect.english === word.english);
             if (hasCorrect !== -1) {
                 someVocab[hasCorrect] = vocabWords[4];
 
@@ -186,9 +189,10 @@ function Game() {
         // Combine the correct and wrong answers into a single array
         const newShuffledAnswers = [newCorrect, ...newWrongAnswers];
         shuffleArray(newShuffledAnswers)
-        setCorrectIndex(newShuffledAnswers.findIndex((answer) => answer.english == newCorrect.english))
+        setCorrectIndex(newShuffledAnswers.findIndex((answer) => answer.english === newCorrect.english))
         setShuffledAnswers(newShuffledAnswers);
         setCorrect(newCorrect);
+        setIsNewWord(isNewWord + 1);
     }
 
     if (isLoading) {
@@ -201,6 +205,7 @@ function Game() {
         return (
 
             <Box id="columns">
+                <NavBar />
                 {displayAudioError && <Alert severity='info'>Hit 'Play' to play the audio (The browser doesn't let you play audio without interaction)</Alert>}
                 <Typography id='vocab-game-title' variant='h4'>Vocab Game</Typography>
                 <Typography id='remaining-score' variant='h5'>Remaining: {answeredWords.length}/{vocabWords.length}</Typography>

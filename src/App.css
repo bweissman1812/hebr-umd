@@ -92,3 +92,10 @@
   margin: 50px;
 }
 
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  color: blue;
+  background-color: aliceblue;
+  width: 100vw;
+}

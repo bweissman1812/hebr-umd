@@ -2,6 +2,7 @@ import './App.css';
 import { Card, Box, ListItemButton, Button, Typography } from '@mui/material';
 import data from './data.json';
 import { useNavigate, useParams } from 'react-router-dom';
+import NavBar from './NavBar';
 
 
 export function Chapters () {
@@ -14,6 +15,7 @@ export function Chapters () {
 
     return (
         <Box id='columns'>
+            <NavBar />
             <Typography id='title' variant='h3'>UMD Hebrew Vocab App</Typography>
             <Box id="container"> 
                 {Object.keys(data.chapters).map((listItem, index) => (
@@ -42,6 +44,7 @@ export function Chapter () {
 
     return (
         <Box id='columns'>
+            <NavBar />
             <Typography id='title' variant='h3'>{chapterNumber[0].toUpperCase() + chapterNumber.slice(1)}</Typography>
             <Box id="container"> 
                 {Object.keys(data.chapters[chapterNumber]).map((listItem, index) => (
