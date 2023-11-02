@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import './App.css';
 import data from './data.json';
-import { ListItemButton, Box, Button, Typography, Alert } from '@mui/material';
+import { ListItemButton, Box, Button, TextField, Typography, Alert,FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 import React, { useState, useEffect, useRef } from 'react';
 import NavBar from './NavBar';
 
@@ -19,6 +19,10 @@ function Game() {
     const [refreshChoices, setRefreshChoices] = useState(true)
     const [displayAudioError, setDisplayAudioError] = useState(false)
     const [isNewWord, setIsNewWord] = useState(0);
+    const [answerType, setAnswerType] = useState('mc');
+    const [textAnswer, setTextAnswer] = useState();
+    const [showOverrideText, setShowOverrideText] = useState(false)
+
 
     const usePrevious = (value, initialValue) => {
         const ref = useRef(initialValue);
@@ -125,7 +129,7 @@ function Game() {
                 await audio.play()
                 setDisplayAudioError(false);
             }
-            catch(error) {
+            catch (error) {
                 setDisplayAudioError(true)
             }
         }
@@ -148,6 +152,8 @@ function Game() {
         setIsLoading(true)
         setSelectedButton(null)
         setIsFirstAttempt(true)
+        setTextAnswer('');
+        setShowOverrideText(false)
 
         if (vocabWords.length === 0) {
             return;
@@ -193,7 +199,45 @@ function Game() {
         setShuffledAnswers(newShuffledAnswers);
         setCorrect(newCorrect);
         setIsNewWord(isNewWord + 1);
+    
     }
+
+    const textSubmit = async () => {
+        setIsFirstAttempt(false);
+
+        console.log(textAnswer)
+        console.log(correct.english)
+
+        if (textAnswer === correct.english) {
+            const audio = new Audio('/audios/correct.wav')
+            await audio.play()
+            setScore(score + 1)
+
+            if (isFirstAttempt) {
+                setAnsweredWords([...answeredWords, correct])
+            }
+        } else {
+            setShowOverrideText(true);
+            const audio = new Audio('/audios/wrong.wav')
+            await audio.play()
+            setScore(score - 1);
+        }
+    }
+
+    const overrideText = async () => {
+        const audio = new Audio('/audios/correct.wav')
+        await audio.play()
+        setScore(score + 2)
+        setAnsweredWords([...answeredWords, correct])
+        setShowOverrideText(false);
+    }
+    
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') { // Change 'Enter' to the desired key
+            textSubmit();
+        }
+      };
 
     if (isLoading) {
 
@@ -207,11 +251,29 @@ function Game() {
             <Box id="columns">
                 <NavBar />
                 {displayAudioError && <Alert severity='info'>Hit 'Play' to play the audio (The browser doesn't let you play audio without interaction)</Alert>}
-                <Typography id='vocab-game-title' variant='h4'>Vocab Game</Typography>
-                <Typography id='remaining-score' variant='h5'>Remaining: {answeredWords.length}/{vocabWords.length}</Typography>
-                <Typography id='correct-hebrew' variant='h5'>{correct.hebrew}</Typography>
+                <div id='rows'>
+                    <div className='rowItem'></div>
+                    <div id='columns' className='rowItem'>
+                        <Typography id='vocab-game-title' variant='h4'>Vocab Game</Typography>
+                        <Typography id='remaining-score' variant='h5'>Remaining: {answeredWords.length}/{vocabWords.length}</Typography>
+                        <Typography id='correct-hebrew' variant='h5'>{correct.hebrew}</Typography>
+                        {!isFirstAttempt && <Typography id='correct-english' variant='h5'>{correct.english}</Typography>}
+                    </div>
+                    <FormControl className='rowItem'>
+                        <FormLabel>Answer Type</FormLabel>
+                        <RadioGroup
+                            defaultValue="mc"
+                            name="radio-buttons-group"
+                            id='radio'
+                            value={answerType} onChange={e => setAnswerType(e.target.value)}
+                        >
+                            <FormControlLabel value="mc" control={<Radio />} label="Multiple Choice" />
+                            <FormControlLabel value="text" control={<Radio />} label="Text Input" />
+                        </RadioGroup>
+                    </FormControl>
+                </div>
                 <Box id='container'>
-                    {shuffledAnswers.map((choice, index) => (
+                    {answerType === 'mc' && shuffledAnswers.map((choice, index) => (
                         <ListItemButton
                             id='vocab-card'
                             key={index}
@@ -225,6 +287,13 @@ function Game() {
                             <Typography>{choice.english}</Typography>
                         </ListItemButton>
                     ))}
+                    {answerType === 'text' &&
+                    (<div id='text-answer-container'>
+                        <TextField disabled={!isFirstAttempt} label="Answer" required value={textAnswer} onChange={e => setTextAnswer(e.target.value)} />
+                        <Button disabled={!isFirstAttempt} variant='contained' onClick={textSubmit}>Submit</Button>
+                        <Button disabled={!showOverrideText} variant='contained' onClick={overrideText}>override text</Button>
+                    </div>)
+                    }
                 </Box>
                 <Box id='button-container'>
                     <Button
