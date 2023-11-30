@@ -24,6 +24,9 @@ export function Chapters () {
                     </ListItemButton>
                 )   
             )}
+            <ListItemButton id="card" onClick={() => navigate('/news')}>
+                <Typography variant='h5'>News</Typography>
+            </ListItemButton>
             </Box>
         </Box>
     )
