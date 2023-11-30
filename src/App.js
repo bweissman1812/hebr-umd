@@ -1,7 +1,4 @@
-import { Card, Box, ListItemButton, Button, Typography } from '@mui/material';
 import './App.css';
-import data from './data.json';
-import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Chapter, Chapters } from './Chapters';
 import Vocab from './Vocab';

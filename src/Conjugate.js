@@ -4,7 +4,6 @@ import './App.css'
 import NavBar from "./NavBar";
 
 function Conjugation() {
-    //const infinitive = "_לָ_וּ";
     const [infinitive, setInfinitive] = useState( "\u200Fלָ_וּ_");
     const pronouns = [
         { "pronoun": "אני", "conjugate": "\u200F__תי" },

@@ -1,5 +1,5 @@
 import './App.css';
-import { Card, Box, ListItemButton, Button, Typography } from '@mui/material';
+import { Box, ListItemButton, Typography } from '@mui/material';
 import data from './data.json';
 import { useNavigate, useParams } from 'react-router-dom';
 import NavBar from './NavBar';
