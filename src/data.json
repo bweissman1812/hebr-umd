@@ -70,7 +70,7 @@
         "chapter-15": {
             "nouns": [
                 {"english": "ear", "hebrew": "אוזן", "audioPath": "/audios/chapter-15/nouns/ear.m4a"},
-                {"english": "truth", "hebrew": "אמת", "audioPath": "/audios/chapter-15/nouns/truth.m4a"},
+                {"english": "truth", "hebr ew": "אמת", "audioPath": "/audios/chapter-15/nouns/truth.m4a"},
                 {"english": "nose", "hebrew": "אף", "audioPath": "/audios/chapter-15/nouns/nose.m4a"},
                 {"english": "tummy", "hebrew": "בטן", "audioPath": "/audios/chapter-15/nouns/tummy.m4a"},
                 {"english": "back", "hebrew": "גב", "audioPath": "/audios/chapter-15/nouns/back.m4a"},
@@ -83,13 +83,13 @@
                 {"english": "eye", "hebrew": "עין", "audioPath": "/audios/chapter-15/nouns/eye.m4a"},
                 {"english": "mouth", "hebrew": "פּה", "audioPath": "/audios/chapter-15/nouns/mouth.m4a"},
                 {"english": "neck", "hebrew": "צוואר", "audioPath": "/audios/chapter-15/nouns/neck.m4a"},
-                {"english": "not good fortune", "hebrew": "צרה", "audioPath": "/audios/chapter-15/nouns/not-good-fortune.m4a"},
+                {"english": "trouble", "hebrew": "צרה", "audioPath": "/audios/chapter-15/nouns/trouble.m4a"},
                 {"english": "line", "hebrew": "קו", "audioPath": "/audios/chapter-15/nouns/line.m4a"},
                 {"english": "head", "hebrew": "ראש", "audioPath": "/audios/chapter-15/nouns/heard.m4a"},
                 {"english": "leg/foot", "hebrew": "רגל", "audioPath": "/audios/chapter-15/nouns/leg:foot.m4a"},
                 {"english": "tooth", "hebrew": "שן", "audioPath": "/audios/chapter-15/nouns/tooth.m4a"},
                 {"english": "hair", "hebrew": "שער", "audioPath": "/audios/chapter-15/nouns/hair.m4a"},
-                {"english": "chain/necklace", "hebrew": "שרשרת", "audioPath": "/audios/chapter-15/nouns/chain:necklace.m4a"}
+                {"english": "chain/necklace", "hebrew": "שרשרת", "audioPath": "/audios/chapter-15/nouns/chain-necklace.m4a"}
             ],
             "verbs": [
                 {"english": "take", "hebrew": "לוקח", "audioPath": "/audios/chapter-15/verbs/take.m4a"},
@@ -100,13 +100,11 @@
             "adjectives": [
                 {"english": "long", "hebrew": "ארוך", "audioPath": "/audios/chapter-15/adjectives/long.m4a"}
             ],
-            "miscellanous": [
-                {"english": "about/around", "hebrew": "בּערך", "audioPath": "/audios/chapter-15/miscellanous/about:around.m4a"},
-                {"english": "inside", "hebrew": "בּתוך", "audioPath": "/audios/chapter-15/miscellanous/inside.m4a"},
-                {"english": "notice/pay attention", "hebrew": "שׂם לב", "audioPath": "/audios/chapter-15/miscellanous/notice:pay-attention.m4a"},
-                {"english": "tripped (someone) up", "hebrew": "שׂם ל רגל", "audioPath": "/audios/chapter-15/miscellanous/tripped.m4a"},
-                {"english": "two years", "hebrew": "שנתיים", "audioPath": "/audios/chapter-15/miscellanous/two-years.m4a"}
-
+            "miscellaneous": [
+                {"english": "about/around", "hebrew": "בּערך", "audioPath": "/audios/chapter-15/miscellaneous/about-around.m4a"},
+                {"english": "inside", "hebrew": "בּתוך", "audioPath": "/audios/chapter-15/miscellaneous/inside.m4a"},
+                {"english": "notice/pay attention", "hebrew": "שׂם לב", "audioPath": "/audios/chapter-15/miscellaneous/notice.m4a"},
+                {"english": "two years", "hebrew": "שנתיים", "audioPath": "/audios/chapter-15/miscellaneous/two-years.m4a"}
             ]
         },
 
@@ -115,11 +113,9 @@
                 {"english": "spring", "hebrew": "אביב", "audioPath": "/audios/chapter-16/nouns/spring.m4a"},
                 {"english": "earth", "hebrew": "אדמה", "audioPath": "/audios/chapter-16/nouns/earth.m4a"},
                 {"english": "fire", "hebrew": "אש", "audioPath": "/audios/chapter-16/nouns/fire.m4a"},
-                {"english": "squill", "hebrew": "חצב", "audioPath": "/audios/chapter-16/nouns/squill.m4a"},
                 {"english": "candle", "hebrew": "נר", "audioPath": "/audios/chapter-16/nouns/candle.m4a"},
                 {"english": "end", "hebrew": "סוף", "audioPath": "/audios/chapter-16/nouns/end.m4a"},
-                {"english": "colchicum", "hebrew": "סתוונית", "audioPath": "/audios/chapter-16/nouns/colchicum.m4a"},
-                {"english": "autumn", "hebrew": "סתיו", "audioPath": "/audios/chapter-16/nouns/autumn.m4a"},
+                {"english": "autumn", "hebrew": " c", "audioPath": "/audios/chapter-16/nouns/autumn.m4a"},
                 {"english": "season", "hebrew": "עונה", "audioPath": "/audios/chapter-16/nouns/season.m4a"},
                 {"english": "color", "hebrew": "צבע", "audioPath": "/audios/chapter-16/nouns/color.m4a"},
                 {"english": "single man", "hebrew": "רווק", "audioPath": "/audios/chapter-16/nouns/single-man.m4a"},
