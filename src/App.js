@@ -6,7 +6,6 @@ import Game from './Game';
 import Conjugation from './Conjugate';
 import About from './About';
 import Help from './Help';
-import News from './News';
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
         <Route exact path='/' element={<Chapters />} />
         <Route exact path='/about' element={<About />} />
         <Route exact path='/help' element={<Help />} />
-        <Route exact path='/news' element={<News />} />
         <Route exact path='/:chapterNumber' element={<Chapter />} />
         <Route exact path='/:chapterNumber/game' element={<Game />} />
         <Route exact path='/:chapterNumber/conjugation' element={<Conjugation />} />

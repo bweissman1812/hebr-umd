@@ -6,8 +6,10 @@ It can be used on most browsers and is best on google chrome desktop
 
 ## Developer Manual
 
-git clone the codebase to your computer 
+git clone the codebase to your computer
+
 npm install - to install all dependencies
+
 npm start - to run locally 
 
 Data is stored in data.json. Follow the same format to add in new data and audio. All audio should be in the audios folder
