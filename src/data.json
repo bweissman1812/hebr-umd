@@ -129,8 +129,8 @@
                 {"english": "brown", "hebrew": "חום", "audioPath": "/audios/chapter-16/colors/brown.m4a"},
                 {"english": "green", "hebrew": "ירוק", "audioPath": "/audios/chapter-16/colors/green.m4a"},
                 {"english": "white", "hebrew": "לבן", "audioPath": "/audios/chapter-16/colors/white.m4a"},
-                {"english": "yellow", "hebrew": "סגול", "audioPath": "/audios/chapter-16/colors/yellow.m4a"},
-                {"english": "purple", "hebrew": "צהוב", "audioPath": "/audios/chapter-16/colors/purple.m4a"}
+                {"english": "yellow", "hebrew": "צהוב", "audioPath": "/audios/chapter-16/colors/yellow.m4a"},
+                {"english": "purple", "hebrew": "סגול", "audioPath": "/audios/chapter-16/colors/purple.m4a"}
             ],
             "adjectives": [
                 {"english": "tall", "hebrew": "גבוה", "audioPath": "/audios/chapter-16/adjectives/tall.m4a"},
