@@ -9,14 +9,11 @@ function About (){
     const getCoderInfo = async () => {
         var response = await fetch('https://us-central1-hebrew-umd.cloudfunctions.net/api/coder/name');
         response = await response.json()
-
-        console.log(response)
-        console.log(typeof(response))
         setCoderName(response['name']);
+        
         response = await fetch('https://us-central1-hebrew-umd.cloudfunctions.net/api/coder/email');
         response = await response.json()
         setCoderEmail(response['email']);
-
     }
 
     useEffect(() => {
