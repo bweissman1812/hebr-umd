@@ -6,6 +6,8 @@ function About (){
     const [coderName, setCoderName] = useState()
     const [coderEmail, setCoderEmail] = useState()
 
+   
+
     const getCoderInfo = async () => {
         var response = await fetch('https://us-central1-hebrew-umd.cloudfunctions.net/api/coder/name');
         response = await response.json()
